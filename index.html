@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澜青旅行社 - 苏州私人导游服务</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D6A4F',
+                        secondary: '#74C69D',
+                        light: '#F8F9FA',
+                        dark: '#343A40'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'sans-serif'],
+                        serif: ['Noto Serif SC', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- 顶部导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 bg-blur shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-primary text-2xl font-serif font-bold">澜青旅行社</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-dark hover:text-primary transition-all-300">首页</a>
+                <a href="#services" class="text-dark hover:text-primary transition-all-300">导游服务</a>
+                <a href="#routes" class="text-dark hover:text-primary transition-all-300">路线推荐</a>
+                <a href="#advantages" class="text-dark hover:text-primary transition-all-300">优势</a>
+                <a href="#testimonials" class="text-dark hover:text-primary transition-all-300">评价</a>
+                <a href="#contact" class="text-dark hover:text-primary transition-all-300">联系</a>
+            </div>
+            <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition-all-300 font-medium">
+                立即预约
+            </a>
+        </div>
+    </nav>
+
+    <!-- 首屏Banner -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Suzhou%20classical%20garden%20with%20pavilion%20and%20pond%2C%20traditional%20Chinese%20architecture%2C%20serene%20atmosphere%2C%20high%20quality%20photography&image_size=landscape_16_9" alt="苏州园林" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-serif font-bold text-white text-shadow-lg mb-4">
+                苏州私人导游服务
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.25rem)] text-white text-shadow mb-8 max-w-2xl mx-auto">
+                本地讲解｜深度文化｜定制行程
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-full hover:bg-primary/90 transition-all-300 font-medium">
+                    立即预约
+                </a>
+                <a href="#contact" class="bg-white/20 text-white border border-white px-8 py-3 rounded-full hover:bg-white/30 transition-all-300 font-medium">
+                    微信咨询
+                </a>
+                <a href="#routes" class="bg-white text-primary px-8 py-3 rounded-full hover:bg-gray-100 transition-all-300 font-medium">
+                    获取行程
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 导游服务介绍 -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-center mb-16">
+                专业导游服务
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">私人一对一讲解</h3>
+                    <p class="text-gray-600">专属导游全程陪同，根据您的兴趣和节奏定制讲解内容，提供个性化服务。</p>
+                </div>
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-language"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">多语言导游</h3>
+                    <p class="text-gray-600">提供中文、英文等多语言导游服务，满足国际游客的需求，确保沟通无障碍。</p>
+                </div>
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">深度文化讲解</h3>
+                    <p class="text-gray-600">深入解读苏州园林、历史文化和江南水乡特色，让您真正了解苏州的文化底蕴。</p>
+                </div>
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-camera"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">摄影陪同导游</h3>
+                    <p class="text-gray-600">专业摄影师兼任导游，为您捕捉旅途中的美好瞬间，留下珍贵的回忆。</p>
+                </div>
+                <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-child"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">亲子讲解服务</h3>
+                    <p class="text-gray-600">专为家庭设计的讲解服务，内容生动有趣，适合儿童理解，让全家都能享受旅行的乐趣。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 导游展示 -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-center mb-16">
+                专业导游团队
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20Chinese%20tour%20guide%20portrait%2C%20friendly%20smile%2C%20traditional%20Chinese%20style%2C%20high%20quality%20professional%20photography&image_size=square" alt="导游小王" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">王导游</h3>
+                    <p class="text-gray-500 mb-3">从业8年</p>
+                    <p class="text-gray-600 mb-3">擅长：园林、古镇</p>
+                    <p class="text-gray-600 mb-3">语言：中文、英文</p>
+                    <p class="text-gray-600">亲和力强，讲解生动，熟悉苏州历史文化，善于根据游客需求调整行程。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20Chinese%20female%20tour%20guide%20portrait%2C%20friendly%20smile%2C%20traditional%20Chinese%20style%2C%20high%20quality%20professional%20photography&image_size=square" alt="导游小李" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">李导游</h3>
+                    <p class="text-gray-500 mb-3">从业6年</p>
+                    <p class="text-gray-600 mb-3">擅长：园林、平江路</p>
+                    <p class="text-gray-600 mb-3">语言：中文</p>
+                    <p class="text-gray-600">温柔耐心，讲解细致，特别适合家庭出游和亲子旅行，深受小朋友喜爱。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20Chinese%20male%20tour%20guide%20portrait%2C%20friendly%20smile%2C%20traditional%20Chinese%20style%2C%20high%20quality%20professional%20photography&image_size=square" alt="导游张" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">张导游</h3>
+                    <p class="text-gray-500 mb-3">从业10年</p>
+                    <p class="text-gray-600 mb-3">擅长：古镇、文化线路</p>
+                    <p class="text-gray-600 mb-3">语言：中文、英文、日语</p>
+                    <p class="text-gray-600">知识渊博，讲解深入浅出，熟悉苏州历史文化和小众景点，为您带来独特的旅行体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 推荐路线 -->
+    <section id="routes" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-center mb-16">
+                推荐路线
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-light rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Suzhou%20classical%20gardens%20Zhuozheng%20Garden%20and%20Lion%20Forest%2C%20traditional%20Chinese%20architecture%2C%20serene%20atmosphere%2C%20high%20quality%20photography&image_size=landscape_4_3" alt="经典园林线" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">经典园林线</h3>
+                        <p class="text-gray-600 mb-4">拙政园 + 狮子林 + 平江路</p>
+                        <p class="text-gray-600 mb-4">游览苏州最著名的古典园林，感受江南园林的精巧与雅致，漫步平江路历史街区，体验苏州的市井文化。</p>
+                        <a href="#contact" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-light rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Hanshan%20Temple%20and%20Shantang%20Street%20in%20Suzhou%2C%20traditional%20Chinese%20architecture%2C%20ancient%20streets%2C%20high%20quality%20photography&image_size=landscape_4_3" alt="文化古街" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">文化古街</h3>
+                        <p class="text-gray-600 mb-4">寒山寺 + 山塘街</p>
+                        <p class="text-gray-600 mb-4">参观著名的寒山寺，聆听千年古刹的钟声，漫步山塘街，感受苏州的水乡风情和历史文化。</p>
+                        <a href="#contact" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-light rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Zhouzhuang%20ancient%20town%20in%20Suzhou%2C%20water%20town%2C%20traditional%20Chinese%20architecture%2C%20serene%20atmosphere%2C%20high%20quality%20photography&image_size=landscape_4_3" alt="周庄古镇" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">周庄古镇一日游</h3>
+                        <p class="text-gray-600 mb-4">周庄古镇</p>
+                        <p class="text-gray-600 mb-4">游览中国第一水乡周庄，欣赏小桥流水人家的独特景观，体验江南水乡的宁静与美丽。</p>
+                        <a href="#contact" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-light rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Suzhou%20cultural%20sites%2C%20traditional%20crafts%2C%20silk%20production%2C%20traditional%20Chinese%20architecture%2C%20high%20quality%20photography&image_size=landscape_4_3" alt="深度文化路线" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">深度苏州文化路线</h3>
+                        <p class="text-gray-600 mb-4">小众路线</p>
+                        <p class="text-gray-600 mb-4">探索苏州的小众文化景点，参观丝绸博物馆，了解苏州传统工艺，体验当地特色美食，感受最真实的苏州文化。</p>
+                        <a href="#contact" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务优势 -->
+    <section id="advantages" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-center mb-16">
+                服务优势
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-user-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">本地专业导游</h3>
+                    <p class="text-gray-600">我们的导游均为苏州本地人，熟悉当地历史文化和景点，为您提供专业的讲解服务。</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">深度讲解</h3>
+                    <p class="text-gray-600">不走马观花，深入解读苏州的历史文化和风土人情，让您真正了解苏州的魅力。</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-sliders"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">行程可自由定制</h3>
+                    <p class="text-gray-600">根据您的兴趣和时间，为您量身定制个性化的行程，满足您的特殊需求。</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-eye-slash"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">无隐形消费</h3>
+                    <p class="text-gray-600">价格透明，无任何隐形消费，让您的旅行更加安心和放心。</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">服务细致贴心</h3>
+                    <p class="text-gray-600">我们关注每一个细节，为您提供贴心的服务，让您的旅行更加舒适和愉快。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-center mb-16">
+                客户评价
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-light p-6 rounded-xl shadow-sm">
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"导游讲解非常专业，对苏州的历史文化了解得很透彻，让我们对苏州有了更深刻的认识。行程安排也很合理，非常满意！"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=asian%20tourist%20portrait%2C%20friendly%20smile%2C%20high%20quality%20professional%20photography&image_size=square" alt="客户" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">张先生</h4>
+                            <p class="text-gray-500 text-sm">上海游客</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-light p-6 rounded-xl shadow-sm">
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"比自己玩有意思太多了！导游不仅讲解详细，还带我们去了一些小众景点，避开了人流，体验非常好。"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=asian%20female%20tourist%20portrait%2C%20friendly%20smile%2C%20high%20quality%20professional%20photography&image_size=square" alt="客户" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">李女士</h4>
+                            <p class="text-gray-500 text-sm">北京游客</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-light p-6 rounded-xl shadow-sm">
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"带孩子一起来的，导游特别有耐心，讲解生动有趣，孩子也很喜欢，学到了很多知识。非常推荐！"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=asian%20family%20portrait%2C%20friendly%20smile%2C%20high%20quality%20professional%20photography&image_size=square" alt="客户" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">王家庭</h4>
+                            <p class="text-gray-500 text-sm">广州游客</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 价格说明 -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-center mb-16">
+                价格说明
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                    <h3 class="text-xl font-semibold mb-4">半天导游</h3>
+                    <p class="text-3xl font-bold text-primary mb-6">¥300</p>
+                    <p class="text-gray-600 mb-4">4小时服务</p>
+                    <p class="text-gray-600 mb-4">专业讲解</p>
+                    <p class="text-gray-600">免费咨询</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center border-2 border-primary">
+                    <h3 class="text-xl font-semibold mb-4">全天导游</h3>
+                    <p class="text-3xl font-bold text-primary mb-6">¥500</p>
+                    <p class="text-gray-600 mb-4">8小时服务</p>
+                    <p class="text-gray-600 mb-4">专业讲解</p>
+                    <p class="text-gray-600">免费咨询</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                    <h3 class="text-xl font-semibold mb-4">英文导游</h3>
+                    <p class="text-3xl font-bold text-primary mb-6">¥600</p>
+                    <p class="text-gray-600 mb-4">8小时服务</p>
+                    <p class="text-gray-600 mb-4">专业英文讲解</p>
+                    <p class="text-gray-600">免费咨询</p>
+                </div>
+            </div>
+            <p class="text-center text-gray-600 mt-8">价格根据人数和需求浮动，具体请咨询客服</p>
+        </div>
+    </section>
+
+    <!-- FAQ常见问题 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-center mb-16">
+                常见问题
+            </h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-medium flex justify-between items-center bg-light hover:bg-gray-50 transition-all-300">
+                        <span>可以定制路线吗？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 py-4 bg-white border-t border-gray-200">
+                        <p class="text-gray-600">是的，我们可以根据您的兴趣、时间和需求为您定制个性化的旅游路线，让您的旅行更加符合您的期望。</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-medium flex justify-between items-center bg-light hover:bg-gray-50 transition-all-300">
+                        <span>是否包含门票？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 py-4 bg-white border-t border-gray-200">
+                        <p class="text-gray-600">导游服务费用不包含景点门票，门票需要您自行购买或我们可以代您预订，具体请咨询客服。</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-medium flex justify-between items-center bg-light hover:bg-gray-50 transition-all-300">
+                        <span>是否支持外语？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 py-4 bg-white border-t border-gray-200">
+                        <p class="text-gray-600">是的，我们提供英文、日语等多语言导游服务，满足国际游客的需求，具体请咨询客服。</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-medium flex justify-between items-center bg-light hover:bg-gray-50 transition-all-300">
+                        <span>可以临时预约吗？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 py-4 bg-white border-t border-gray-200">
+                        <p class="text-gray-600">我们建议提前1-3天预约，以确保能够为您安排合适的导游。如果您有临时需求，也可以联系我们，我们会尽力为您安排。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-center mb-16">
+                联系我们
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">联系方式</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4 mt-1">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">电话</h4>
+                                <a href="tel:18012361217" class="text-gray-600 hover:text-primary transition-all-300">18012361217</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4 mt-1">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">邮箱</h4>
+                                <a href="mailto:932168783@qq.com" class="text-gray-600 hover:text-primary transition-all-300">932168783@qq.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-primary text-2xl mr-4 mt-1">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">地址</h4>
+                                <p class="text-gray-600">苏州市姑苏区平江路123号</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold mb-4">微信咨询</h3>
+                        <div class="bg-white p-4 rounded-lg shadow-sm inline-block">
+                            <p class="text-gray-600 mb-2">扫描下方二维码添加微信</p>
+                            <div class="w-48 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <span class="text-gray-500">微信二维码</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">预约咨询</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">电话</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="date" class="block text-gray-700 mb-2">出行时间</label>
+                            <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="需求" class="block text-gray-700 mb-2">需求</label>
+                            <textarea id="需求" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary/90 transition-all-300 font-medium">
+                            提交预约
+                        </button>
+                    </form>
+                    <div class="mt-6 flex items-center justify-center space-x-8">
+                        <div class="flex items-center">
+                            <div class="text-primary text-2xl mr-2">
+                                <i class="fa fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-600">免费咨询</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-primary text-2xl mr-2">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <span class="text-gray-600">快速回复</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-2xl font-serif font-bold mb-4">澜青旅行社</h3>
+                <p class="text-white/80 mb-6">专业苏州私人导游服务，让您的旅行更加精彩</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-white hover:text-white/80 transition-all-300">
+                        <i class="fa fa-weixin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white/80 transition-all-300">
+                        <i class="fa fa-weibo text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-white/80 transition-all-300">
+                        <i class="fa fa-instagram text-2xl"></i>
+                    </a>
+                </div>
+                <p class="text-white/60 text-sm">© 2026 澜青旅行社. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('shadow-sm');
+            }
+        });
+
+        // FAQ折叠效果
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.display = 'block';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
